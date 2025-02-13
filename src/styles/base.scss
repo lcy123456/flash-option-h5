@@ -1,0 +1,12 @@
+:root {
+	--color-primary: #ffce1f;
+	--color-secondary: #0075ff;
+	--color-success: #2ebd87;
+	--color-danger: #f54058;
+
+	--safe-area-height-top: constant(safe-area-inset-top);
+	--safe-area-height-top: env(safe-area-inset-top);
+	--safe-area-height-bottom: constant(safe-area-inset-bottom);
+	--safe-area-height-bottom: env(safe-area-inset-bottom);
+}
+

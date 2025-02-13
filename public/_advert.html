@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #box {
+      width: 100vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    const urls = {
+      1: 'https://api.a123.me',
+      2: 'https://api.copbit.com'
+    }
+    let _env = '1'
+    let _lang = 'en_US'
+
+    const getUrlParam = function () {
+      const url = document.location.toString()
+      let arrObj = url.split('?')
+      const params = Object.create(null)
+      if (arrObj.length > 1) {
+        arrObj = arrObj[1].split('&')
+        arrObj.forEach((item) => {
+          item = item.split('=')
+          params[item[0]] = item[1]
+        })
+      }
+      return params
+    };
+
+    const _ajax = () => {
+      const request = (url, method, data) => {
+        const xhr = new XMLHttpRequest()
+        xhr.open(method, urls[_env] + url, true)
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        xhr.setRequestHeader('lang', _lang)
+        xhr.send(data)
+        return new Promise((resolve, reject) => {
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                resolve(JSON.parse(xhr.responseText))
+              } else {
+                reject(JSON.parse(xhr.responseText))
+              }
+            }
+          }
+        })
+      }
+      return {
+        get: (url) => request(url, 'get', null),
+        post: (url, data) => request(url, 'post', data),
+        put: (url, data) => request(url, 'put', data),
+        delete: (url, data) => request(url, 'delete', data),
+      }
+    }
+
+    window.onload = async () => {
+      const params = getUrlParam()
+      if (params.env && params.cate && params.lang) {
+        _lang = params.lang
+        _env = params.env
+        const res = await _ajax().post('/uc/ancillary/more/help/cateOne', `cate=${params.cate}`)
+        if (res.code === 0 && res.data) {
+          box.innerHTML = res.data.content
+        } else {
+          box.innerHTML = res.message
+        }
+      } else {
+        console.error('url缺少参数')
+      }
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+:root:root {
+  --van-button-primary-background: var(--color-brand-blue);
+  --van-button-primary-border-color: var(--color-brand-blue);
+  --van-button-radius: 50px;
+
+  --van-toast-default-width: fit-content;
+
+  --van-overlay-background: rgba(0, 0, 0, 0.6);
+
+
+  .my-tab {
+    --van-tabs-bottom-bar-height: 2px;
+    --van-tabs-bottom-bar-color: var(--color-border-button-strong);
+  }
+
+  .van-toast {
+    min-width: 88px;
+  }
+
+  .van-button--plain {
+    // --van-button-primary-background: var(--color-brand-blue);
+    background: transparent;
+    --van-button-primary-border-color: var(--color-border-button-strong);
+  }
+
+  .van-button--primary {
+    color: var(--color-always-white);
+    &.van-button--disabled {
+      background: var(--color-background-disabled);
+      border-color: var(--color-background-disabled);
+      opacity: 1;
+    }
+  }
+
+   .van-field {
+    &.customer  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      input::placeholder {
+        color: var(--color-text-disabled); //styleName: Web/Body/Medium;
+        //styleName: Web/Body/Regular;
+          font-family: HarmonyOS Sans SC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+      }
+    }
+  
+  }
+}

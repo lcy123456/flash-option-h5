@@ -1,0 +1,48 @@
+/* Variable collection */
+:root {
+  /* Light */
+  /* color */
+  --color-always-black: #000000;
+  --color-always-white: #ffffff;
+  --color-background-disabled: #d1d1d1;
+  --color-background-inverse-primary: #0a0b0d;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #fcfcfc;
+  --color-background-tertiary: #f6f6f6;
+  --color-background-top-universal: #f6f6f6;
+  --color-background-mask: #00000099;
+  --color-background-warning: #ff91421a;
+  --color-border-button-line: #ababab;
+  --color-border-button-strong: #000000;
+  --color-border-gutter: #ffffff;
+  --color-border-strong: #f0f0f0;
+  --color-border-subtle: #f4f5f7;
+  --color-brand-main: #1754f8;
+  --color-function-buy: #00b076;
+  --color-function-buy-disabled: #e5f7f1;
+  --color-function-buy-light-background: #00b0761a;
+  --color-function-buy-volume: #00b07666;
+  --color-function-sell: #fd3d49;
+  --color-function-sell-disabled: #ffeced;
+  --color-function-sell-light-backgroundr: #fd3d491a;
+  --color-function-sell-volume: #fd3d4966;
+  --color-text-brand: #1754f8;
+  --color-text-brand2: #fe7701;
+  --color-text-brand3: #14c393;
+  --color-text-brand4: #4d50e1;
+  --color-text-description: #919191;
+  --color-text-disabled: #dfdfdf;
+  --color-text-error: #f1606d;
+  --color-text-inverse-primary: #ffffff;
+  --color-text-inverse-secondary: #ccd0dd;
+  --color-text-inverse-tertiary: #abafbc;
+  --color-text-primary: #000000;
+  --color-text-secondary: #343434;
+  --color-text-success: #28ad76;
+  --color-text-tertiary: #5a5a5a;
+  --color-text-tips: #c1c1c1;
+  --color-text-warning: #ff9142;
+  --color-transaction-blu: #99f9fb;
+  --color-transaction-pur: #d84cef;
+  --color-transaction-yel: #e5a04d;
+}

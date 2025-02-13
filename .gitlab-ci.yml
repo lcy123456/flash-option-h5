@@ -1,0 +1,99 @@
+stages:
+  - compile
+  - deploy
+  - notify_lark
+
+include:
+  - project: 'cicd/ci-project'
+    ref: 'main'
+    file: 'notifications/lark.yaml'
+
+variables:
+  NODE_VERSION: "20.15.0"
+  LARK_WEBHOOK_URL: "https://open.larksuite.com/open-apis/bot/v2/hook/2231bc16-0214-4ea9-b361-6009ce44b389"
+
+notify_lark_on_fail:
+  stage: notify_lark
+  variables:
+    STATUS: 'FAILED'
+  tags:
+    - frontend
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(dev|test|pre|prod)$/'
+      when: on_failure
+
+notify_lark_on_success:
+  stage: notify_lark
+  variables:
+    STATUS: 'SUCCESS'
+  tags:
+    - frontend
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(dev|test|pre|prod)$/'
+      when: on_success
+
+compile:
+  stage: compile
+  script:
+    - source ~/.bashrc
+    - nvm use ${NODE_VERSION}   
+    - npm install
+    - npm run build:${CI_COMMIT_REF_SLUG}
+    - chmod -R 777 ./*
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - ./dist
+  tags:
+    - frontend
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(prod)$/'  
+# - if: '$CI_COMMIT_BRANCH =~ /^(dev|test|pre|prod)$/'
+
+# deploy:
+#   stage: deploy
+#   script:
+#     - |
+#       if [ "$CI_COMMIT_REF_NAME" == "dev" ]; then
+#         HOST_VAR="dev_host"
+#       elif [ "$CI_COMMIT_REF_NAME" == "test" ]; then
+#         HOST_VAR="test_host"
+#       elif [ "$CI_COMMIT_REF_NAME" == "pre" ]; then
+#         HOST_VAR="pre_host"
+#       else
+#         echo "Unknown branch: $CI_COMMIT_REF_NAME"
+#         exit 1
+#       fi
+#       DEPLOY_HOST="${!HOST_VAR}"
+#       tar czf - -C dist . | ssh $DEPLOY_HOST "tar xzf - -C $DEPLOY_PATH"
+#       echo "tar czf - -C dist . | ssh $DEPLOY_HOST \"tar xzf - -C $DEPLOY_PATH\""
+#   tags:
+#     - frontend
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH =~ /^(dev|test|pre)$/'
+#       when: always
+
+
+deploy-prod:
+  stage: deploy
+  script:
+    - |
+      if [ "$CI_COMMIT_REF_NAME" == "prod" ]; then
+        HOST_VAR="prod_host"
+      else
+        echo "Unknown branch: $CI_COMMIT_REF_NAME"
+        exit 1
+      fi
+      DEPLOY_HOST="${!HOST_VAR}"
+      tar czf - -C dist . | ssh $DEPLOY_HOST "tar xzf - -C $DEPLOY_PATH"
+      echo "tar czf - -C dist . | ssh $DEPLOY_HOST \"tar xzf - -C $DEPLOY_PATH\""
+  tags:
+    - frontend
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(prod)$/'
+      when: manual

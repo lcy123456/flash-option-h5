@@ -1,0 +1,13 @@
+
+
+.pane-legend { /* 隐藏开盘价、收盘价 */
+    display: none !important;
+}
+.control-bar-wrapper {
+    display: none !important;
+}
+.chart-page .chart-container {
+    border: 1px solid;
+    border-color: #fff;
+    background-color: #fff
+  }

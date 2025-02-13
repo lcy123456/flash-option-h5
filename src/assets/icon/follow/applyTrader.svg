@@ -1,0 +1,34 @@
+<svg width="43" height="44" viewBox="0 0 43 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="18.9374" cy="39.7067" rx="17.7073" ry="4.29268" fill="black" />
+  <rect x="0.22688" y="0.275228" width="34.058" height="37.0919" rx="4.5902"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 6.03713 0.0220545)" fill="white"
+    stroke="black" stroke-width="0.527962" />
+  <path
+    d="M5.62591 4.85407C5.9757 2.36519 8.29393 0.454194 10.8038 0.585732L35.6474 1.88773C38.1573 2.01927 39.9084 4.14353 39.5586 6.6324L39.263 8.73544L5.33035 6.9571L5.62591 4.85407Z"
+    fill="black" stroke="black" stroke-width="0.606772" />
+  <ellipse cx="0.910158" cy="0.910158" rx="0.910158" ry="0.910158"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 9.21192 3.22266)" fill="white" />
+  <ellipse cx="0.910158" cy="0.910158" rx="0.910158" ry="0.910158"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 12.2416 3.38281)" fill="white" />
+  <ellipse cx="0.910158" cy="0.910158" rx="0.910158" ry="0.910158"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 15.2713 3.54102)" fill="white" />
+  <rect x="0.260747" y="0.316312" width="13.4314" height="3.03386" rx="1.51693"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 7.68285 13.1857)" stroke="black"
+    stroke-width="0.606772" />
+  <rect width="22.2638" height="3.64063" rx="1.82032"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 6.82312 21.1211)" fill="#1754F8" />
+  <rect x="0.260747" y="0.316312" width="27.1443" height="3.03386" rx="1.51693"
+    transform="matrix(0.99863 0.052336 -0.139173 0.990268 5.10762 29.0246)" stroke="black"
+    stroke-width="0.606772" />
+  <circle cx="3.77643" cy="3.77643" r="3.77643"
+    transform="matrix(-0.139173 0.990268 -0.996049 -0.0696106 34.5941 19.8047)" fill="#1754F8"
+    stroke="#1754F8" stroke-width="1.75987" />
+  <path d="M32.4771 22.3008L29.6792 24.3711L28.5143 22.9302" stroke="white" stroke-width="1.4079"
+    stroke-linecap="round" />
+  <path d="M38.3237 26.4785L40.0169 27.611" stroke="black" stroke-width="0.634233"
+    stroke-linecap="round" />
+  <path d="M38.6365 24.8965H40.7828" stroke="black" stroke-width="0.634233" stroke-linecap="round" />
+  <path d="M41.856 21.4844L38.6365 23.0941" stroke="black" stroke-width="0.634233"
+    stroke-linecap="round" />
+</svg>
+  

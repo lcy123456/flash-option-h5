@@ -1,0 +1,32 @@
+@font-face {
+	font-family: 'HarmonyOS Sans SC Bold';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Bold.ttf'); */
+}
+
+@font-face {
+	font-family: 'HarmonyOS Sans SC Medium';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Medium.ttf'); */
+}
+
+@font-face {
+	font-family: 'HarmonyOS Sans SC Regular';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Regular.ttf'); */
+}
+
+@font-face {
+	font-family: 'HarmonyOS Sans SC';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Bold.ttf'); */
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'HarmonyOS Sans SC';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Medium.ttf'); */
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'HarmonyOS Sans SC';
+	/* src: url('https://cdn.gscgl.com/font/HarmonyOS_SansSC_Regular.ttf'); */
+	font-weight: 400;
+}

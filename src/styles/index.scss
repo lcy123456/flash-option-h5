@@ -1,0 +1,1144 @@
+@import './base.scss';
+@import './light.scss';
+@import './dark.scss';
+@import './vant.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 针对Chromium内核浏览器 */
+/* 设置滚动条的宽度和颜色 */
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+/* 设置滚动条滑块的颜色 */
+::-webkit-scrollbar-thumb {
+	background-color: var(--color-text-tertiary) !important;
+}
+
+@layer base {
+	html {
+		@apply text-base text-black font-regular;
+		background: var(--color-background-primary) !important;
+
+		/* 针对 Firefox 浏览器 */
+		// scrollbar-color: var(--color-text-tertiary) transparent !important;
+		// /* 设置滚动条颜色 */
+		// scrollbar-width: thin !important;
+		/* 设置滚动条宽度 */
+	}
+}
+
+/* Target the horizontal scrollbar */
+.scrollable-container {
+	overflow-x: scroll;
+	/* Ensure the element scrolls horizontally */
+	scrollbar-color: var(--color-text-tertiary) transparent !important;
+	/* Thumb color and track color (for Firefox) */
+	scrollbar-width: thin !important;
+	/* Set scrollbar width (for Firefox) */
+}
+
+/* For WebKit browsers like Chrome, Safari, and Edge */
+.scrollable-container::-webkit-scrollbar {
+	height: 1px;
+	/* Height of horizontal scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+	background: var(--color-text-tertiary) transparent !important;
+	/* Track color */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+	background-color: var(--color-text-tertiary) transparent !important;
+	/* Thumb color */
+	height: 1px;
+}
+
+body .scroll-height-0 {
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+		width: 0 !important;
+		height: 0 !important;
+	}
+}
+
+.customize-crollbar::-webkit-scrollbar {
+	width: 4px;
+	scrollbar-color: var(--color-text-tertiary);
+}
+
+/* 设置滚动条轨道的样式 */
+.customize-crollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* 设置滚动滑块的样式 */
+.customize-crollbar::-webkit-scrollbar-thumb {
+	background: var(--color-background-disabled) !important;
+	border-radius: 10px;
+}
+
+/* 当鼠标悬停在滚动滑块上时的样式 */
+.customize-crollbar ::-webkit-scrollbar-thumb:hover {
+	cursor: pointer;
+}
+
+::before,
+::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+}
+
+.animate__animated {
+	animation-duration: 300ms;
+}
+
+// 文字排版样式
+
+.text-style-large-300 {
+	font-size: 64px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 72px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-400 {
+	font-size: 64px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 72px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-500 {
+	font-size: 64px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 72px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-700 {
+	font-size: 64px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 72px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-2-300 {
+	font-size: 56px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 64px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-2-400 {
+	font-size: 56px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 64px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-2-500 {
+	font-size: 56px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 64px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-large-2-700 {
+	font-size: 56px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 64px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-1-300 {
+	font-size: 48px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 56px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-1-400 {
+	font-size: 48px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 56px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-1-500 {
+	font-size: 48px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 56px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-1-700 {
+	font-size: 48px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 56px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-2-300 {
+	font-size: 40px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 48px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-2-400 {
+	font-size: 40px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 48px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-2-500 {
+	font-size: 40px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 48px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-2-700 {
+	font-size: 40px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 48px;
+	letter-spacing: -0.02em;
+}
+
+.text-style-h-3-300 {
+	font-size: 32px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 40px;
+}
+
+.text-style-h-3-400 {
+	font-size: 32px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 40px;
+}
+
+.text-style-h-3-500 {
+	font-size: 32px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 40px;
+}
+
+.text-style-h-3-700 {
+	font-size: 32px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 40px;
+}
+
+.text-style-h-4-300 {
+	font-size: 24px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 32px;
+}
+
+.text-style-h-4-400 {
+	font-size: 24px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 32px;
+}
+
+.text-style-h-4-500 {
+	font-size: 24px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 32px;
+}
+
+.text-style-h-4-700 {
+	font-size: 24px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 32px;
+}
+
+.text-style-h-5-300 {
+	font-size: 20px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-5-400 {
+	font-size: 20px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-5-500 {
+	font-size: 20px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-5-700 {
+	font-size: 20px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 24px;
+}
+
+// Web/H5/Bold
+.text-style-web-h-5-700 {
+	font-size: 15px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 18px;
+}
+
+.text-style-h-6-300 {
+	font-size: 18px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-6-400 {
+	font-size: 18px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-6-500 {
+	font-size: 18px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-h-6-700 {
+	font-size: 18px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-300 {
+	font-size: 16px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-400 {
+	font-size: 16px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-500 {
+	font-size: 16px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 24px;
+}
+
+// Web/Body/Bold
+.text-style-body {
+	font-size: 16px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 24px;
+}
+
+// Web/Body/Bold
+.text-style-web-body-700 {
+	font-size: 14px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 20px;
+}
+
+// Montserrat
+.text-style-montserrat {
+	font-size: 18px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 27px;
+}
+
+.text-style-body-2-300 {
+	font-size: 15px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-2-400 {
+	font-size: 15px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-2-500 {
+	font-size: 15px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-body-2-700 {
+	font-size: 15px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 24px;
+}
+
+.text-style-medium-300 {
+	font-size: 14px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-400 {
+	font-size: 14px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-400-underline {
+	font-size: 14px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 20px;
+	text-decoration: underline;
+	text-transform: none;
+}
+
+.text-style-medium-500 {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.text-style-medium-700 {
+	font-size: 14px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-2-300 {
+	font-size: 13px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-2-400 {
+	font-size: 13px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-2-400-underline {
+	font-size: 13px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 20px;
+	text-decoration: underline;
+	text-transform: none;
+}
+
+.text-style-medium-2-500 {
+	font-size: 13px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-medium-2-700 {
+	font-size: 13px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 20px;
+}
+
+.text-style-small-300 {
+	font-size: 12px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 16px;
+}
+
+.text-style-small-400 {
+	font-size: 12px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 16px;
+}
+
+.text-base-small-400 {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.text-style-small-400-underline {
+	font-size: 12px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 16px;
+	text-decoration: underline;
+	text-transform: none;
+}
+
+.text-style-small-500 {
+	font-size: 12px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 16px;
+}
+
+//App/Small/500
+.text-style-app-small-500 {
+	font-family: ' HarmonyOS Sans SC';
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.text-style-small-700 {
+	font-size: 12px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 16px;
+}
+
+.text-style-small-2-300 {
+	font-size: 11px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-2-400 {
+	font-size: 11px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-2-400-underline {
+	font-size: 11px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 12px;
+	text-decoration: underline;
+	text-transform: none;
+}
+
+.text-style-small-2-500 {
+	font-size: 11px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-2-700 {
+	font-size: 11px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-3-300 {
+	font-size: 10px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-3-400 {
+	font-size: 10px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-3-500 {
+	font-size: 10px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-3-700 {
+	font-size: 10px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-4-300 {
+	font-size: 8px;
+	font-family: 'HarmonyOS Sans SC Light';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-4-400 {
+	font-size: 8px;
+	font-family: 'HarmonyOS Sans SC Regular';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-4-500 {
+	font-size: 8px;
+	font-family: 'HarmonyOS Sans SC Medium';
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-small-4-700 {
+	font-size: 8px;
+	font-family: 'HarmonyOS Sans SC Bold';
+	font-weight: 700;
+	font-style: normal;
+	line-height: 12px;
+}
+
+.text-style-web-h5-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 18px;
+}
+
+//Web/Body/Medium
+.text-style-web-body-medium {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.text-style-web-h1-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 28px;
+}
+
+.text-style-web-xsmall-medium {
+	/* Web/XSmall/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 14px;
+}
+
+// Web/H3/Bold
+.text-style-web-h3-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.text-style-web-h3-regular {
+	/* Web/H3/Regular */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.text-style-web-oversize-bold {
+	/* Web/Oversize/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 60px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: 60px;
+}
+
+/* Web/Small/Regular */
+.text-style-web-small-regular {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+/* Web/Small/Medium */
+.text-style-web-small-medium {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.text-style-web-body-regular {
+	/* Web/Body/Regular */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.text-style-ark-aans-tc-small-400_150 {
+	/* Ark Sans TC/Small/400_150 */
+	font-family: 'Ark Sans TC';
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+}
+
+.text-style-web-base-regular {
+	/* Web/Base/Regular */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.text-style-web-large-bold {
+	/* Web/Large/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.text-style-web-h4-bold {
+	/* Web/H4/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+.text-style-web-h5-medium {
+	/* Web/H5/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.text-style-web-body-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+.text-style-web-h1-medium {
+	/* Web/H1/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28px;
+}
+
+.text-style-app-h3-600 {
+	/* App/H3/600 */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 150%;
+}
+
+//Web/XSmall/Regular
+.text-style-web-xsmall-regular {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 14px;
+}
+
+.text-style-web-h2-medium {
+	/* Web/H2/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.text-style-web-h3-medium {
+	/* Web/H3/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+}
+
+.text-style-web-h4-medium {
+	/* Web/H4/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.text-style-web-xxsmall-regular {
+	/* Web/XXSmall/Regular */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 12px;
+}
+
+.text-style-web-xlarge-medium {
+	/* Web/XLarge/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 38px;
+}
+
+.text-style-web-xlarge-bold {
+	/* Web/XLarge/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 38px;
+}
+
+.text-style-web-h2-bold {
+	/* Web/H2/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+}
+
+// 隐藏 google 小图标
+.grecaptcha-badge {
+	visibility: hidden !important;
+}
+
+.z-200 {
+	z-index: 200;
+}
+
+.text-web-h1-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.text-web-small-regular {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.text-web-h5-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 18px;
+}
+
+.text-web-h2-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+// Web/H2/Medium
+.text-web-h2-medium {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.text-app-medium-600 {
+	font-family: 'HarmonyOS';
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 21px;
+}
+
+.text-app-medium-400 {
+	font-family: 'HarmonyOS';
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+.text-app-small-400 {
+	font-family: 'HarmonyOS';
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.text-style-web-xsmall-medium {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 14px;
+}
+
+.text-style-web-small-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 16px;
+}
+
+.text-style-web-h4-regular {
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.text-style-web-base-medium {
+	/* Web/Base/Regular */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.text-style-h4-700 {
+	/* H4/700 */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.text-style-web-mega-bold {
+	/* Web/Mega/Bold */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 46px;
+}
+
+.text-web-h4-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.text-web-h1-medium {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.scroll-stop {
+	overflow: hidden;
+}
+
+.text-web-mega-bold {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 46px;
+}
+
+.text-web-mega-black {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 900;
+	font-size: 40px;
+	line-height: 46px;
+}
+
+.app-small3-400 {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 15px;
+}
+
+.pc-ma {
+	font-family: 'Montserrat Alternates';
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 26.82px;
+	text-align: left;
+}
+
+.text-web-900 {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 900;
+	font-size: 60px;
+	line-height: 46px;
+}
+
+.text-web-h3-regular {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.text-web-400 {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.text-web-900-small {
+	font-family: 'HarmonyOS Sans SC';
+	font-weight: 900;
+	font-size: 43px;
+	line-height: 33px;
+}
+
+.text-style-app-medium-400_100 {
+	/* App/Medium/400_100 */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 100%;
+}
+
+.text-style-web-h2-regular {
+	/* Web/H2/Medium */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.text-style-medium-400-underline {
+	/* Medium/400 Underline */
+	font-family: 'HarmonyOS Sans SC';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	/* 142.857% */
+	text-decoration-line: underline;
+}
+
+.text-style-logo-title {
+	font-family: Jeko-ExtraBold;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 100%;
+	/* 24px */
+	letter-spacing: -0.96px;
+}
+
+.text-style-web-mega-black {
+	/* Web/Mega/Black */
+	font-family: "HarmonyOS Sans SC";
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: 46px;
+}
+
+.text-style-web-large-black {
+	/* Web/Large/Black */
+	font-family: "HarmonyOS Sans SC";
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: 32px;
+}
+
+.body-pc-width {
+	width: calc(100vw - 10px);
+}

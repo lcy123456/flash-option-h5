@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ /* 一行显示，超过显示.. */
+ .overflow1Ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+}
+/*隐藏滚轮*/
+::-webkit-scrollbar {
+	display: none;
+	width: 0;
+	height: 0;
+}
