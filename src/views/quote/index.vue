@@ -137,40 +137,40 @@ const handleTab = (type: any) => {
 	quoteStore.state.marketActive = type
 }
 const symbolList = computed(() => {
-	const reg = new RegExp(quoteStore.state.searchValue.toLocaleLowerCase(), 'gim')
+	const reg = new RegExp(quoteStore.state.searchValue?.toLocaleLowerCase(), 'gim')
 	let list = []
 	// tab = 现货
 	if (quoteStore?.state.marketActive === marketSearchEnum.trade) {
 		list = tradeStore?.state?.symbolThumbList.filter((item: any) =>
-			item.symbol.toLocaleLowerCase().match(reg)
+			item.symbol?.toLocaleLowerCase().match(reg)
 		)
 	} else if (quoteStore?.state.marketActive === marketSearchEnum.swap) {
 		// tab = 合约
 		list = swapStore?.state?.symbolThumbList.filter((item: any) =>
-			item.symbol.toLocaleLowerCase().match(reg)
+			item.symbol?.toLocaleLowerCase().match(reg)
 		)
 	} else if (quoteStore?.state.marketActive === marketSearchEnum.option) {
 		// tab = 期权
 		list = quoteStore?.state?.optionCoinList.filter((item: any) =>
-			item.symbol.toLocaleLowerCase().match(reg)
+			item.symbol?.toLocaleLowerCase().match(reg)
 		)
 	} else if (quoteStore?.state.marketActive === marketSearchEnum.dcontract) {
 		// tab = 交割合约
-		list = state.symbolThumbList.filter((item: any) => item.symbol.toLocaleLowerCase().match(reg))
+		list = state.symbolThumbList.filter((item: any) => item.symbol?.toLocaleLowerCase().match(reg))
 	} else if (quoteStore?.state.marketActive === marketSearchEnum.own) {
 		switch (quoteStore?.state.optActive) {
 			case marketSearchEnum.trade:
-				list = tradeFavor.value.filter((item: any) => item.symbol.toLocaleLowerCase().match(reg))
+				list = tradeFavor.value.filter((item: any) => item.symbol?.toLocaleLowerCase().match(reg))
 				break
 			case marketSearchEnum.swap:
-				list = swapFavor.value.filter((item: any) => item.symbol.toLocaleLowerCase().match(reg))
+				list = swapFavor.value.filter((item: any) => item.symbol?.toLocaleLowerCase().match(reg))
 				break
 			case marketSearchEnum.option:
-				list = optionFavor.value.filter((item: any) => item.symbol.toLocaleLowerCase().match(reg))
+				list = optionFavor.value.filter((item: any) => item.symbol?.toLocaleLowerCase().match(reg))
 				break
 			case marketSearchEnum.dcontract:
 				list = dcontractFavor.value.filter((item: any) =>
-					item.symbol.toLocaleLowerCase().match(reg)
+					item.symbol?.toLocaleLowerCase().match(reg)
 				)
 				break
 		}

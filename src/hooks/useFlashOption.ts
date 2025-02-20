@@ -121,7 +121,7 @@ export function useFlashOption() {
 			4
 		)
 		widget = createChart(datafeed, {
-			symbol: state.symbol,
+			symbol:'BINANCE:' + state.symbol.replace('/', ''),
 			skin: state.skin,
 			...config
 		})

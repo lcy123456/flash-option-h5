@@ -206,13 +206,13 @@ export function useDeliveryContract() {
 			const { createChart } = useTradingView()
 			delete config.overrides
 			widget = createChart(datafeed, {
-				symbol: state.symbol,
+				symbol:'BINANCE:' + state.symbol.replace('/', ''),
 				...config,
 				resolution: state.resolution
 			})
 		} else {
 			widget = createChart(datafeed, {
-				symbol: state.symbol,
+				symbol:'BINANCE:' + state.symbol.replace('/', ''),
 				...config,
 				resolution: state.resolution
 			})

@@ -304,13 +304,13 @@ const calcFee = computed(() => {
 			<div class="flex items-center justify-between mb-[22px]">
 				<div class="text-text-primary text-style-web-h3-bold">{{ t('trade.txt95') }}</div>
 				<div v-if="!isPC">
-					<Icon name="common/close" :size="24" class="text-text-primary w-6 h-6" @click="close" />
+					<Icon name="common/close" :size="24" class="w-6 h-6 text-text-primary" @click="close" />
 
 					<!-- <img v-if="!isPC" src="/imgs/common/close.svg" @click="close" class="w-6 h-6" /> -->
 				</div>
 			</div>
 			<div
-				class="p-1 text-style-web-h5-medium flex rounded-lg text-style-web-h5-medium"
+				class="flex p-1 rounded-lg text-style-web-h5-medium"
 				:class="[!isPC ? 'bg-background-secondary' : '']">
 				<div
 					class="py-[10px] flex flex-1 items-center justify-center cursor-pointer"
@@ -410,7 +410,7 @@ const calcFee = computed(() => {
 			<Button
 				v-if="userStore.loginToken"
 				size="small"
-				:type="state.formInfo.direction.toLocaleLowerCase()"
+				:type="state.formInfo.direction?.toLocaleLowerCase()"
 				class="text-style-web-small-regular"
 				:class="!isPC ? 'mt-3' : 'mt-4'"
 				@click="createOrder">
@@ -435,7 +435,7 @@ const calcFee = computed(() => {
 	</component>
 	<div
 		v-if="!isPC"
-		class="fixed z-50 bottom-0 w-full p-4 border-t border-border-gutter flex bg-background-primary text-always-white">
+		class="fixed bottom-0 z-50 flex w-full p-4 border-t border-border-gutter bg-background-primary text-always-white">
 		<Button
 			@click="handleCreate(directionTypeEnum.BUY)"
 			type="buy"

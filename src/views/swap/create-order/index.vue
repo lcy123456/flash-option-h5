@@ -272,10 +272,10 @@ onMounted(() => {
 				</div>
 			</div>
 			<div
-				class="flex items-center rounded-md justify-between py-2 text-style-web-body-medium text-text-primary mb-3 mx-4"
+				class="flex items-center justify-between py-2 mx-4 mb-3 rounded-md text-style-web-body-medium text-text-primary"
 				:class="[!isPC ? 'bg-background-secondary' : '']">
 				<div
-					class="flex-1 flex items-center cursor-pointer"
+					class="flex items-center flex-1 cursor-pointer"
 					:class="[
 						isPC
 							? 'border border-border-subtle rounded-md text-style-app-small-500 justify-between py-[7px] px-2'
@@ -283,10 +283,10 @@ onMounted(() => {
 					]"
 					@click="state.showMargin = true">
 					{{ macthPosition(swapStore.state.currentUserInfo?.positionType) }}
-					<Icon name="common/chevron-right" :size="!isPC ? 20 : 12" class="rotate-90 ml-1" />
+					<Icon name="common/chevron-right" :size="!isPC ? 20 : 12" class="ml-1 rotate-90" />
 				</div>
 				<div
-					class="flex-1 flex items-center cursor-pointer"
+					class="flex items-center flex-1 cursor-pointer"
 					:class="[
 						!isPC
 							? 'border-l border-border-strong border-h justify-center'
@@ -294,7 +294,7 @@ onMounted(() => {
 					]"
 					@click="state.showLeverage = true">
 					<span>{{ state.leverage }}X</span>
-					<Icon name="common/chevron-right" :size="!isPC ? 20 : 12" class="rotate-90 ml-1" />
+					<Icon name="common/chevron-right" :size="!isPC ? 20 : 12" class="ml-1 rotate-90" />
 				</div>
 			</div>
 			<Tabs
@@ -349,24 +349,24 @@ onMounted(() => {
 				</div>
 				<div class="flex items-center justify-between mt-3">
 					<div
-						class="text-text-description text-style-web-small-regular flex"
+						class="flex text-text-description text-style-web-small-regular"
 						:class="[isPC ? 'flex-col items-start' : 'items-center']">
 						<div :class="[directionTypeColor(actionTypeEnum.BUY)]">{{ t('trade.txt104') }}：</div>
 						<div class="web:hidden text-text-secondary">
 							{{ thousandsComma(canAmount) }} {{ useTypeInfo.coinSymbol }}
 						</div>
-						<div class="pdph:hidden text-text-tertiary text-style-web-base-regular mt-1">
+						<div class="mt-1 pdph:hidden text-text-tertiary text-style-web-base-regular">
 							{{ thousandsComma(canAmount) }} {{ useTypeInfo.coinSymbol }}
 						</div>
 					</div>
 					<div
-						class="text-text-tertiary text-style-web-base-regular flex"
+						class="flex text-text-tertiary text-style-web-base-regular"
 						:class="[isPC ? 'flex-col items-start' : 'items-center']">
 						<div :class="directionTypeColor(actionTypeEnum.SELL)">{{ t('trade.txt105') }}：</div>
 						<div class="web:hidden text-text-secondary">
 							{{ thousandsComma(canAmount) }} {{ useTypeInfo.coinSymbol }}
 						</div>
-						<div class="pdph:hidden text-text-tertiary text-style-web-base-regular mt-1">
+						<div class="mt-1 pdph:hidden text-text-tertiary text-style-web-base-regular">
 							{{ thousandsComma(canAmount) }} {{ useTypeInfo.coinSymbol }}
 						</div>
 					</div>
@@ -374,11 +374,11 @@ onMounted(() => {
 			</div>
 			<div
 				v-if="userStore.loginToken"
-				class="mt-3 pt-3 border-border-strong border-t px-4"
+				class="px-4 pt-3 mt-3 border-t border-border-strong"
 				:class="[!isPC && 'flex items-center']">
 				<Button
 					size="small"
-					:type="actionTypeEnum.BUY.toLocaleLowerCase()"
+					:type="actionTypeEnum.BUY?.toLocaleLowerCase()"
 					class="text-style-web-small-regular"
 					:class="!isPC ? 'mt-3' : 'mt-4'"
 					@click="createOrder(directionTypeEnum.BUY)">
@@ -386,7 +386,7 @@ onMounted(() => {
 				</Button>
 				<Button
 					size="small"
-					:type="actionTypeEnum.SELL.toLocaleLowerCase()"
+					:type="actionTypeEnum.SELL?.toLocaleLowerCase()"
 					class="text-style-web-small-regular"
 					:class="!isPC ? 'mt-3  ml-2' : 'mt-2'"
 					@click="createOrder(directionTypeEnum.SELL)">

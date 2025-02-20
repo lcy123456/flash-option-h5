@@ -90,7 +90,7 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 				baseCoinScale
 			)
 			widget = createChart(datafeed, {
-				symbol,
+				symbol:'BINANCE:' + symbol.replace('/', ''),
 				skin,
 				...config
 			})
