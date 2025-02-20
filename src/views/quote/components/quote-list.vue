@@ -25,6 +25,13 @@ const handleSwitch = (item: any) => {
 		quoteStore?.state.marketActive,
 		quoteStore?.state.optActive
 	)
+	console.log(
+		'item---item',
+		item,
+		quoteStore?.state.marketActive,
+		marketSearchEnum.trade,
+		marketSearchEnum.swap
+	)
 	if (quoteStore?.state.marketActive === marketSearchEnum.trade) {
 		tradeStore.switchSymbol(item.symbol)
 	} else if (quoteStore?.state.marketActive === marketSearchEnum.swap) {
@@ -92,11 +99,11 @@ const symbolList = computed(() => {
 			<template v-else>
 				<div
 					v-for="item in symbolList(list)"
-					class="py-3 px-4 cursor-pointer hover:bg-background-secondary"
+					class="px-4 py-3 cursor-pointer hover:bg-background-secondary"
 					:key="item.symbol"
 					:class="currentSymbol === item.symbol ? 'bg-background-secondary' : 'bg-transparent'">
 					<div class="flex" @click="handleSwitch(item)">
-						<div class="flex flex-1 items-center">
+						<div class="flex items-center flex-1">
 							<div class="mr-1" @click.stop="handleAdd(item)">
 								<Icon v-if="item.isFavor" name="common/stared" :size="24" class="text-text-brand" />
 								<Icon v-else name="common/star" :size="24" class="text-background-disabled" />
@@ -109,7 +116,7 @@ const symbolList = computed(() => {
 								</p>
 							</div>
 						</div>
-						<div class="flex-1 text-style-web-body-medium flex items-center justify-end">
+						<div class="flex items-center justify-end flex-1 text-style-web-body-medium">
 							<div class="text-text-primary">{{ thousandsComma(item.close) }}</div>
 							<div class="w-[82px] text-right" :class="PONTextColor(item.chg)">
 								{{ formatChange(item.chg) }}

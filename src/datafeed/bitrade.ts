@@ -64,6 +64,7 @@ class WebsockFeed {
 		listenerGUID: string,
 		onResetCacheNeededCallback: () => void
 	): void {
+		console.log('symbolInfo----symbolInfo', symbolInfo)
 		this.stompClient.subscribe(`/topic/market/trade/${symbolInfo.name}`, (msg) => {
 			const resp = JSON.parse(msg.body)
 			if (this.lastBar && resp.length > 0) {

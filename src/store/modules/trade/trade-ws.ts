@@ -44,7 +44,6 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 			tradeStore.reseteWsData()
 		}
 		symbol = tradeStore.state.currentSymboy || symbol || state.symbol
-		console.log(symbol, 'symbol====createTradeWs')
 		config = {
 			..._config,
 			user_id: 'user_2', //  为实例2配置唯一的用户标识符
@@ -54,6 +53,7 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 			hide_top_toolbar: true,
 			theme: 'light'
 		}
+		console.log(config, 'symbol====createTradeWs')
 		wsService?.disconnect()
 		wsService = new WebSocketService(`${import.meta.env.VITE_FOLLOW_MARKET_WS}/market/market-ws`)
 		wsService.connect()
@@ -63,14 +63,14 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 		// 订阅24小时行情
 		wsService.subscribe('/topic/market/thumb', (msg: any) => {
 			const resp = JSON.parse(msg.body)
-			console.log(resp, '订阅24小时行情');
+			// console.log(resp, '订阅24小时行情')
 			tradeStore.updateWsSymboy(resp)
 		})
 
 		// 获取汇率
 		wsService.subscribe('/topic/market/rate', (msg: any) => {
 			const resp = JSON.parse(msg.body)
-			console.log(resp);
+			console.log(resp)
 			if (Array.isArray(resp)) {
 				resp.forEach((item) => {
 					for (const k in item) {
@@ -89,33 +89,34 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 				wsService,
 				baseCoinScale
 			)
+			console.log('dddd', 'BINANCE:' + symbol.replace('/', ''))
 			widget = createChart(datafeed, {
-				symbol:'BINANCE:' + symbol.replace('/', ''),
-				skin,
-				...config
+				...config,
+				symbol: 'BINANCE:' + symbol.replace('/', ''),
+				skin
 			})
 			//订阅实时成交信息
 			wsService.subscribe(`/topic/market/trade/${symbol}`, (msg: any) => {
 				const resp = JSON.parse(msg.body)
-				console.log(resp,'订阅实时成交信息');
-				
+				// console.log(resp, '订阅实时成交信息')
+
 				tradeStore.updateWsTrades(resp)
 			})
 			//订阅盘口消息
 			wsService.subscribe('/topic/market/trade-plate/' + symbol, (msg: any) => {
 				const resp = JSON.parse(msg.body)
-				console.log(resp,'订阅盘口消息')
+				// console.log(resp, '订阅盘口消息')
 				tradeStore.updateWsOrderBook(resp)
 			})
 			if (userStore.loginToken) {
-				console.log(userStore.userInfo);
-				
+				console.log(userStore.userInfo)
+
 				//订阅委托取消信息
 				wsService.subscribe(
 					`/topic/market/order-canceled/${symbol}/${userStore.userInfo.id}`,
 					(msg: any) => {
 						const resp = JSON.parse(msg.body)
-						console.log(resp, '订阅委托取消信息')
+						// console.log(resp, '订阅委托取消信息')
 						tradeStore.debounceRefreshAccount()
 					}
 				)
@@ -124,7 +125,7 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 					`/topic/market/order-completed/${symbol}/${userStore.userInfo.id}`,
 					(msg: any) => {
 						const resp = JSON.parse(msg.body)
-						console.log(resp, '订阅委托交易完成')
+						// console.log(resp, '订阅委托交易完成')
 						tradeStore.debounceRefreshAccount()
 					}
 				)
@@ -134,7 +135,7 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 
 					(msg: any) => {
 						const resp = JSON.parse(msg.body)
-						console.log(resp, '订阅委托部分交易')
+						// console.log(resp, '订阅委托部分交易')
 						tradeStore.debounceRefreshAccount()
 					}
 				)
@@ -142,7 +143,7 @@ export const useTradeWsStore = defineStore('Trade-ws-store', () => {
 				wsService.subscribe(
 					`/topic/market/order-created/${symbol}/${userStore.userInfo.id}`,
 					(msg: any) => {
-						console.log(msg, '创建订单')
+						// console.log(msg, '创建订单')
 						tradeStore.fetchCurrentOrder()
 					}
 				)

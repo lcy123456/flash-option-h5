@@ -318,7 +318,8 @@ export const useTradeStore = defineStore('Trade-store', () => {
 	 * @param symbol 切换币种
 	 */
 	function switchSymbol(symbol: string) {
-		if (!location.pathname.includes('/trade/')) {
+		console.log('symbol---333---symbol', symbol)
+		if (!location.hash.includes('/trade/')) {
 			state.currentSymboy = symbol
 			routeTo('trade', { params: { symbol: replaceToName(symbol) } })
 			return

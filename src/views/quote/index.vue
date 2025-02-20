@@ -71,6 +71,7 @@ const checkoutSymbol = () => {
 	if (isTrade.value) {
 		const symbolThumbList = tradeStore.state.symbolThumbList
 		const hasUrl = getCuSymbol(symbolThumbList)
+		console.log('symbolThumbList---symbolThumbList', symbolThumbList, hasUrl)
 		if (!hasUrl) {
 			const firstSymbol = symbolThumbList[0]?.symbol
 			const symbol = replaceToName(firstSymbol)

@@ -16,22 +16,27 @@ export function useTradingView() {
 		data: { symbol: string; skin: 'night' | 'day'; [key: string]: any }
 	) => {
 		const config = createConfig(datafeed, data)
+		console.log('data----data', data)
 		const ele = document.getElementById(config.container_id)
 		if (!ele) return
 		config.container = config.container_id
 		klineId = config.container_id
+		console.log('config----config', config)
 		widget = new TradingView.widget(config)
+		console.log('widget---widget', widget)
 
-		widget.onChartReady(function () {
-			setActive(mainIndicators[0])
-		})
+		// widget.onChartReady(function () {
+		// 	setActive(mainIndicators[0])
+		// })
+		// setActive(mainIndicators[0])
 
 		return widget
 	}
 
 	const switchCurrency = (newSymbol: string) => {
 		console.log('switchCurrency:', newSymbol)
-		widget?.setSymbol(newSymbol, getDefaultInterval())
+		console.log('widget----widget', widget)
+		// widget?.setSymbol(newSymbol, getDefaultInterval())
 	}
 
 	watch(

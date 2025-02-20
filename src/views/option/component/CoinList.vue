@@ -9,7 +9,7 @@
 			<div class="w-[90px] text-right">{{ t('option.txt7') }}</div>
 		</div>
 		<div
-			class="flex items-center text-text-primary text-style-web-body-medium h-[44px] px-[16px] cursor-pointer  hover:bg-background-secondary"
+			class="flex items-center text-text-primary text-style-web-body-medium h-[44px] px-[16px] cursor-pointer hover:bg-background-secondary"
 			v-for="(item, index) in symbolList(list)"
 			:key="item.symbol"
 			:class="state.symbol === item.symbol ? 'bg-background-secondary' : 'bg-transparent'"

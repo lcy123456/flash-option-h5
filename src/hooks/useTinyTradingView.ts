@@ -23,13 +23,17 @@ export function useTinyTradingView() {
 		config.container = config.container_id
 		klineId = config.container_id
 		widget = new TradingView.widget(config)
-
-		widget.onChartReady(function () {
-			if (!isWeb.value) {
-				// 获取所有研究的列表
-				widget.chart().removeAllStudies()
-			}
-		})
+        console.log('widget---widget', widget)
+		// widget.onChartReady(function () {
+		// 	if (!isWeb.value) {
+		// 		// 获取所有研究的列表
+		// 		widget.chart().removeAllStudies()
+		// 	}
+		// })
+        // if (!isWeb.value) {
+        //     // 获取所有研究的列表
+        //     widget.chart().removeAllStudies()
+        // }
 		return widget
 	}
 

@@ -58,7 +58,7 @@ export const useSwapWsStore = defineStore('swap-ws-store', () => {
 			theme: 'light'
 		}
 		symbol = swapStore.state.currentSymboy || symbol || state.symbol
-		console.log('symbol----symbol', symbol);
+		console.log('symbol----symbol', symbol)
 		// 订阅24小时行情
 		wsService.subscribe('/topic/swap/thumb', (msg: any) => {
 			const resp = JSON.parse(msg.body)
@@ -134,9 +134,9 @@ export const useSwapWsStore = defineStore('swap-ws-store', () => {
 			baseCoinScale
 		)
 		widget = createChart(datafeed, {
-			symbol:'BINANCE:' + symbol.replace('/', ''),
-			skin,
-			...config
+			...config,
+			symbol: 'BINANCE:' + symbol.replace('/', ''),
+			skin
 		})
 	}
 	/**
@@ -145,6 +145,8 @@ export const useSwapWsStore = defineStore('swap-ws-store', () => {
 	 */
 	const setSymbol = async (symbol: string) => {
 		switchCurrency(symbol)
+		console.log('symbol-----symbol333', symbol)
+		state.symbol = symbol
 		createTradeWs(symbol, config)
 	}
 	// 时间切换

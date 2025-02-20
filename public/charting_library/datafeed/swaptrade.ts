@@ -223,7 +223,7 @@ class WebsockFeed {
         onHistoryCallback: HistoryCallback,
         onErrorCallback: (reason: any) => void,
     ): void {
-        let bars: Bar[] = [];
+        const bars: Bar[] = [];
         const { from, to, firstDataRequest } = periodParams
         console.log("resolution :", resolution, parseInt(resolution) )
         console.log(`from : ${formatTime(from * 1000)}, to : ${formatTime(firstDataRequest ? new Date().getTime() : to * 1000)}`)

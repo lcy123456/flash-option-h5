@@ -13,7 +13,7 @@ export const replaceName = (name: string) => {
 }
 // 将币对/ 替换成-
 export const replaceToName = (name: string) => {
-	if (!name) return '--'
+	if (!name) return 'BTC/USDT'
 	return name.replace('/', '-')
 }
 /**
@@ -23,7 +23,7 @@ export const replaceToName = (name: string) => {
  */
 export const getCuSymbol = (dataList: any[]) => {
 	// url上是的有币对
-	const clientPathName: any = window.location.pathname.split('/')
+	const clientPathName: any = window.location.hash.split('/')
 	const symbolKey = clientPathName && replaceName(clientPathName[2])
 	const urlContractName = dataList.length && dataList?.find((item) => item.symbol === symbolKey)
 	if (urlContractName) {
@@ -64,7 +64,11 @@ export const chgTextColor = (oldVal: any, newVal: any) => {
 }
 // 设置涨跌颜色 【success|】
 export const chgSuccessColor = (oldVal: any, newVal: any) => {
-	return newVal > oldVal ? 'text-text-success' : newVal === oldVal?'text-text-primary':'text-function-sell'
+	return newVal > oldVal
+		? 'text-text-success'
+		: newVal === oldVal
+			? 'text-text-primary'
+			: 'text-function-sell'
 }
 // 设置背景颜色
 export const chgBgColor = (chg: any) => {
@@ -256,7 +260,7 @@ export const swapOrderList = [
 		name: i18n.global.t(`trade.txt131`),
 		value: orderTypeEnum.CONDITION,
 		key: orderTypeEnum.CONDITION,
-		id:orderTypeEnum.CONDITION,
+		id: orderTypeEnum.CONDITION,
 		type: orderCurrentTypeEnum.SPOT_LIMIT
 	}
 ]
@@ -354,6 +358,6 @@ export const deOrderBook = () => {
 			amount: '--',
 			totalAmount: '--'
 		})
-	  }
+	}
 	return list
 }

@@ -7,7 +7,7 @@
 			<span
 				v-for="(item, index) in messages"
 				:key="index"
-				class="message cursor-pointer"
+				class="cursor-pointer message"
 				@click="goTrade(item.symbol)">
 				{{ item.label }}
 			</span>
@@ -15,7 +15,7 @@
 			<span
 				v-for="(item, index) in messages"
 				:key="'copy-' + index"
-				class="message cursor-pointer"
+				class="cursor-pointer message"
 				@click="goTrade(item.symbol)">
 				{{ item.label }}
 			</span>

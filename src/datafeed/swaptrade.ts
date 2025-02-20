@@ -29,6 +29,7 @@ class WebsockFeed {
 	}
 
 	onReady(callback: (config: Config) => void): void {
+		console.log(5345345)
 		const config: Config = {
 			exchanges: [],
 			supported_resolutions: ['1', '5', '15', '30', '60', '240', '1D', '1W', '1M'],
@@ -66,6 +67,7 @@ class WebsockFeed {
 		onResetCacheNeededCallback: () => void
 	): void {
 		this.stompClient.subscribe(`/topic/swap/trade/${symbolInfo.name}`, (msg) => {
+			console.log('symbolInfo-3333333333---symbolInfo', symbolInfo)
 			const resp = JSON.parse(msg.body)
 			if (this.lastBar && resp.length > 0) {
 				const price = resp[resp.length - 1].price

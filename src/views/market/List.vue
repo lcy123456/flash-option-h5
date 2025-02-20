@@ -55,6 +55,7 @@ function getChgBgClass(num: number) {
 
 const goPage = (item: { symbol: string }) => {
 	const symbols = item.symbol.split('/')
+	console.log('symbols----symbols', symbols)
 	router.push({ path: `/trade/${symbols[0]}-${symbols[1]}` })
 }
 </script>

@@ -369,8 +369,8 @@ export const useSwapStore = defineStore('Swap-store', () => {
 		if (!userStore.loginToken) return
 		const res: any = await getPositionList(params)
 		const result = res && res?.data
-		console.log(result);
-		
+		console.log(result)
+
 		state.positionList = result?.currentPositionWithCutList
 		state.positionData = {
 			// 仓位信息
@@ -422,16 +422,16 @@ export const useSwapStore = defineStore('Swap-store', () => {
 	 * @param symbol 切换币种
 	 */
 	function switchSymbol(symbol: string) {
-		if (!location.pathname.includes('/swap/')) {
+		if (!location.hash.includes('/swap/')) {
 			state.currentSymboy = symbol
 			routeTo('swap', { params: { symbol: replaceToName(symbol) } })
 			return
 		}
-
-		if (state.currentSymboy === symbol && location.pathname.includes('/swap/')) return
+		if (state.currentSymboy === symbol && location.hash.includes('/swap/')) return
 		const swapWsStore = useSwapWsStore()
 		state.currentSymboy = symbol
 		routeTo('swap', { params: { symbol: replaceToName(symbol) } })
+		console.log('state.currentSymboy === symbol-----000', state.currentSymboy, symbol)
 		fetchSymboyInfo()
 		swapWsStore.setSymbol(symbol)
 	}

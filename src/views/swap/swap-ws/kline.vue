@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive,onMounted } from 'vue'
+import { reactive, onMounted } from 'vue'
 import DepthGraph from './depth-graph.vue'
 import KlineAction from './kline-action.vue'
 import { useSwapStore } from '@/store/modules/swap/index'
@@ -71,18 +71,19 @@ onMounted(() => {
 </script>
 <template>
 	<div>
-		<KlineAction  />
+		<KlineAction />
 		<!-- TradingView Widget BEGIN -->
 		<div
 			v-show="swapStore.state.KlineAction === klineTypeEnum.kline"
 			id="kline_swap_container"
-			class="w-full " :class="[isPC?'h-[468px]':'h-[400px]']"></div>
+			class="w-full"
+			:class="[isPC ? 'h-[468px]' : 'h-[400px]']"></div>
 		<!-- TradingView Widget END -->
 		<DepthGraph v-if="swapStore.state.KlineAction === klineTypeEnum.dept" class="w-full" />
-		<div class="flex items-center w-full px-4 border-t border-border-strong py-[6px]"  v-if="!isPC">
-			<div class="flex flex-1 overflow-y-scroll items-center">
+		<div class="flex items-center w-full px-4 border-t border-border-strong py-[6px]" v-if="!isPC">
+			<div class="flex items-center flex-1 overflow-y-scroll">
 				<div
-					class="text-style-web-body-medium mr-4"
+					class="mr-4 text-style-web-body-medium"
 					:class="state.mainActive === item.label ? 'text-text-primary ' : '  text-text-tertiary'"
 					v-for="item in state.mainIndicators"
 					:key="item"
@@ -91,7 +92,7 @@ onMounted(() => {
 				</div>
 				<div class="border-r border-border-strong h-[15px] mr-4"></div>
 				<div
-					class="text-style-web-body-medium mr-4"
+					class="mr-4 text-style-web-body-medium"
 					v-for="key in state.subIndicators"
 					:class="
 						state.subActive.includes(key.label) ? 'text-text-primary ' : '  text-text-tertiary'

@@ -67,6 +67,7 @@ class FlashOptionFeed {
 		listenerGUID: string,
 		onResetCacheNeededCallback: () => void
 	): void {
+		console.log('symbolInfo----symbolInfo', symbolInfo)
 		// this.stompClient.subscribe(`/topic/swap/trade/${symbolInfo.name}`, (msg) => {
 		//     const resp = JSON.parse(msg.body);
 		//     if (this.lastBar && resp.length > 0) {

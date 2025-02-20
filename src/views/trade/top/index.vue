@@ -3,7 +3,7 @@ import { routeTo } from '@/utils/routeTo'
 import { thousandsComma, PONTextColor, formatNumUnit } from '@/utils/trade'
 import { useTradeStore } from '@/store/modules/trade/index'
 import { formatChange } from '@/utils'
-import { reactive, ref, inject, watch, onMounted } from 'vue'
+import { reactive, ref, inject, onMounted } from 'vue'
 import Quote from '@/views/quote/index.vue'
 import { marketSearchEnum } from '@/enums/trade'
 import { formatTime } from '@/utils/date'
@@ -43,7 +43,7 @@ onMounted(() => {
 </script>
 <template>
 	<div
-		class="px-4 py-3 text-style-small-500 bg-background-secondary flex items-center justify-between"
+		class="flex items-center justify-between px-4 py-3 text-style-small-500 bg-background-secondary"
 		v-if="isVerfy && !kycInfo.isAuth">
 		<div class="flex items-center flex-1">
 			<img src="/imgs/common/question.svg" class="w-4 h-4 mr-1" />
@@ -59,13 +59,13 @@ onMounted(() => {
 			<Icon
 				name="common/close"
 				:size="24"
-				class="text-text-primary w-6 h-6 ml-1 cursor-pointer"
+				class="w-6 h-6 ml-1 cursor-pointer text-text-primary"
 				@click="isVerfy = false" />
 		</div>
 	</div>
 	<div class="px-4 py-3 border-b-4 border-border-subtle web:hidden">
 		<div>
-			<div class="flex justify-between items-center">
+			<div class="flex items-center justify-between">
 				<div class="flex items-center text-style-medium-700">
 					<Icon
 						name="head/menu"
@@ -115,12 +115,12 @@ onMounted(() => {
 				<div class="text-web-h1-bold" :class="tradeStore.currentWsSymboy?.textColor">
 					{{ thousandsComma(tradeStore.currentWsSymboy?.close) }}
 				</div>
-				<div class="text-style-web-small-regular mt-1 text-text-tertiary">
+				<div class="mt-1 text-style-web-small-regular text-text-tertiary">
 					{{ thousandsComma(walletStore.getUSDTPrice(tradeStore.currentWsSymboy?.close))
 					}}{{ walletStore.getCurrencyInfo().code }}
 				</div>
 				<div
-					class="text-style-web-small-regular mt-1"
+					class="mt-1 text-style-web-small-regular"
 					:class="PONTextColor(tradeStore.currentWsSymboy?.chg)">
 					{{ formatChange(tradeStore.currentWsSymboy?.chg) }}
 				</div>
@@ -130,7 +130,7 @@ onMounted(() => {
 				<div class="text-text-primary mt-[2px]">
 					{{ thousandsComma(tradeStore.currentWsSymboy?.high) }}
 				</div>
-				<div class="text-text-description mt-2">
+				<div class="mt-2 text-text-description">
 					24H {{ t('trade.txt18') }}({{ tradeStore.state.currentCoinInfo.coinSymbol }})
 				</div>
 				<div class="text-text-primary mt-[2px]">
@@ -142,7 +142,7 @@ onMounted(() => {
 				<div class="text-text-primary mt-[2px]">
 					{{ thousandsComma(tradeStore.currentWsSymboy?.low) }}
 				</div>
-				<div class="text-text-description mt-2">24H {{ t('trade.txt18') }}(USDT)</div>
+				<div class="mt-2 text-text-description">24H {{ t('trade.txt18') }}(USDT)</div>
 				<div class="text-text-primary mt-[2px]">
 					{{ formatNumUnit(tradeStore.currentWsSymboy?.turnover?.toFixed(2)) }}
 				</div>
@@ -167,13 +167,13 @@ onMounted(() => {
 					</div>
 					<div
 						class="ml-[30px] grid grid-cols-[100px_100px_100px_100px] text-style-web-small-regular text-text-primary">
-						<div class=" ">
+						<div class="">
 							<div class="text-text-description">24H {{ t('trade.txt17') }}</div>
 							<div class="text-text-primary mt-[2px]">
 								{{ thousandsComma(tradeStore.currentWsSymboy?.high) }}
 							</div>
 						</div>
-						<div class=" ">
+						<div class="">
 							<div class="text-style-web-small-regular text-text-description">
 								24H {{ t('trade.txt18') }}（{{ tradeStore.state.currentCoinInfo.coinSymbol }}）
 							</div>
@@ -189,7 +189,7 @@ onMounted(() => {
 								{{ thousandsComma(tradeStore.currentWsSymboy?.low) }}
 							</div>
 						</div>
-						<div class=" ">
+						<div class="">
 							<div class="text-style-web-small-regular text-text-description">
 								24H {{ t('trade.txt18') }}(USDT)
 							</div>
@@ -206,7 +206,7 @@ onMounted(() => {
 					<div class="pdph:hidden w-[288px] border-l border-r border-border-strong overflow-hidden">
 						<pcorder />
 					</div>
-					<div class="pdph:hidden w-[320px] ">
+					<div class="pdph:hidden w-[320px]">
 						<CreateOrder />
 					</div>
 				</div>
@@ -228,13 +228,13 @@ onMounted(() => {
 					{{ state.coinInfo.name }}
 				</span>
 			</div>
-			<div class="flex justify-between items-center">
+			<div class="flex items-center justify-between">
 				<div class="text-style-web-body-regular text-text-description">
 					{{ t('trade.txt22') }}
 				</div>
 				<div class="text-style-web-body-regular text-text-brand">No.{{ state.coinInfo.rank }}</div>
 			</div>
-			<div class="flex justify-between items-center my-2">
+			<div class="flex items-center justify-between my-2">
 				<div class="text-style-web-body-regular text-text-description">
 					{{ t('trade.txt23') }}
 				</div>
@@ -242,7 +242,7 @@ onMounted(() => {
 					{{ formatNumUnit(state.coinInfo?.marketValue) }}
 				</div>
 			</div>
-			<div class="flex justify-between items-center">
+			<div class="flex items-center justify-between">
 				<div class="text-style-web-body-regular text-text-description">
 					{{ t('trade.txt24') }}
 				</div>
@@ -250,7 +250,7 @@ onMounted(() => {
 					{{ formatNumUnit(state.coinInfo?.currencyAmount) }}
 				</div>
 			</div>
-			<div class="flex justify-between items-center my-2">
+			<div class="flex items-center justify-between my-2">
 				<div class="text-style-web-body-regular text-text-description">
 					{{ t('trade.txt25') }}
 				</div>
@@ -269,7 +269,7 @@ onMounted(() => {
 					</div>
 				</div>
 			</div>
-			<div class="text-web-h5-bold text-text-secondary my-3">{{ t('trade.txt27') }}</div>
+			<div class="my-3 text-web-h5-bold text-text-secondary">{{ t('trade.txt27') }}</div>
 			<div class="text-style-web-base-regular text-text-description">
 				{{ state.coinInfo.information }}
 			</div>
